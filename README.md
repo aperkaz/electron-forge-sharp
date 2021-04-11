@@ -2,6 +2,8 @@
 
 [sharp](https://github.com/lovell/sharp) running in [Electron Forge](https://github.com/electron-userland/electron-forge) V6.
 
+The sharp module is being used in `src/main.js`.
+
 ### Instructions to run
 
 #### Developer Mode
