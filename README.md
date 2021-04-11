@@ -15,4 +15,4 @@
 1. Pull in this repo
 2. `npm i`
 3. `npm run package`
-4. go to the `./out` folder to find the executable file that was just packaged and double click / invoke
+4. go to the `./out` folder to find the executable.
