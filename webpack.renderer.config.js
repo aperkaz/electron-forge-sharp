@@ -10,7 +10,4 @@ module.exports = {
   module: {
     rules,
   },
-  externals: {
-    sharp: "commonjs sharp",
-  },
 };

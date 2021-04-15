@@ -1,37 +1,9 @@
-/**
- * This file will automatically be loaded by webpack and run in the "renderer" context.
- * To learn more about the differences between the "main" and the "renderer" context in
- * Electron, visit:
- *
- * https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes
- *
- * By default, Node.js integration in this file is disabled. When enabling Node.js integration
- * in a renderer process, please be aware of potential security implications. You can read
- * more about security risks here:
- *
- * https://electronjs.org/docs/tutorial/security
- *
- * To enable Node.js integration in this file, open up `main.js` and enable the `nodeIntegration`
- * flag:
- *
- * ```
- *  // Create the browser window.
- *  mainWindow = new BrowserWindow({
- *    width: 800,
- *    height: 600,
- *    webPreferences: {
- *      nodeIntegration: true
- *    }
- *  });
- * ```
- */
+import sharp from "sharp";
 import React from "react";
 import ReactDOM from "react-dom";
 
 import styled from "styled-components";
 import Loading from "./Loading";
-
-//debug('booting %o', name);
 
 const Container = styled.div`
   width: 100vw;
@@ -45,11 +17,33 @@ const Text = styled.div`
   text-align: center;
 `;
 
+new Promise((r) => setTimeout(r, 10000)).then(() => {
+  for (let i = 0; i < 3; i++) {
+    sharp({
+      create: {
+        width: 300,
+        height: 300,
+        channels: 4,
+        background: { r: 0, g: 250, b: 0, alpha: 1 },
+      },
+    })
+      .png()
+      .toFile(`/Users/alain/Downloads/output/renderer${i}.png`, (err, info) => {
+        if (err) {
+          console.log("err: ", err);
+        }
+        if (info) {
+          console.log(`Created image nr: `, i);
+        }
+      });
+  }
+});
+
 export default class App extends React.Component {
   render() {
     return (
       <Container>
-        <Text> Hello From React!</Text>
+        <Text> Executing sharp in render process!</Text>
         <Loading />
       </Container>
     );

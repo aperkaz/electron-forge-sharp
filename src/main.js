@@ -56,30 +56,3 @@ app.on("activate", () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
-
-const sharp = require("sharp");
-
-new Promise((r) => setTimeout(r, 10000)).then(() => {
-  for (let i = 0; i < 3000; i++) {
-    sharp({
-      create: {
-        width: 300,
-        height: 300,
-        channels: 4,
-        background: { r: 0, g: 250, b: 0, alpha: 1 },
-      },
-    })
-      .png()
-      .toFile(`/Users/alain/Downloads/output/hi${i}.png`, (err, info) => {
-        if (err) {
-          console.log("err: ", err);
-        }
-        if (info) {
-          console.log(`Created image nr: `, i);
-        }
-      });
-  }
-});
