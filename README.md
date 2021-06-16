@@ -4,15 +4,17 @@
 
 The sharp module is being used in `src/main.js`.
 
-### Instructions to run
+Tested and working in `MacOS`.
 
-#### Developer Mode
+## Instructions to run
+
+### Developer Mode
 
 1. Pull in this repo
 2. `npm i`
 3. `npm start`
 
-#### Production Mode
+### Production Mode
 
 1. Pull in this repo
 2. `npm i`

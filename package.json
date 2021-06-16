@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Sharp in electron forge v6",
   "main": ".webpack/main",
+  "engines": {
+    "node": ">= 0.14.17"
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
